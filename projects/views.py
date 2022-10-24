@@ -9,4 +9,4 @@ def project_list(request):
     context = {
         "project_object": project,
     }
-    return render(request, "list.html", context)
+    return render(request, "projects/list.html", context)
