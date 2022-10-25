@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h1>My Tasks</h1>
+            <table>
+                <thead>
+                {% if tasks_object|length >= 1 %}
+                    <th>Name</th>
+                    <th>Start date</th>
+                    <th>Due date</th>
+                    <th>is completed</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for tasks in tasks_object.all %}
+                        <td>{{ tasks.name }}</td>
+                        <td>{{ tasks.start_date }}</td>
+                        <td>{{ tasks.due_date }}</td>
+                        <td>{{ tasks.is_complete|yesno }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+                {% if tasks_object|length == 0 %}
+                <p>You have no tasks</p>
+                {% endif %}
+                </tbody>
+
+
+            </table>
+        </div>
+    </main>
+</body>
+</html>
